@@ -14,6 +14,7 @@ const Input = ({
   multiline,
   numberOfLines,
   autoFocus,
+  autoCapitalize,
 }) => {
   return (
     <TextInput
@@ -31,6 +32,9 @@ const Input = ({
       }}
       mode={mode}
       style={style}
+      autoCapitalize={
+        autoCapitalize === undefined ? 'sentences' : autoCapitalize
+      }
       returnKeyType={returnKeyType}
       keyboardType={keyboardType}
       autoFocus={autoFocus === undefined ? false : autoFocus}

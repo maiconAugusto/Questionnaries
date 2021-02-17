@@ -13,13 +13,16 @@ const CreateQuestionnaire = ({navigation}) => {
         mode="outlined"
         maxLength={40}
         label="Nome do questionário"
+        returnKeyType="done"
         autoFocus={true}
         style={{fontSize: 14, marginTop: 30, marginLeft: 10, marginRight: 10}}
       />
       <Buttom
         data={'Proxímo'}
         disabled={questionnaireName.length === 0 ? true : false}
-        onPress={() => navigation.navigate('Questionnaire')}
+        onPress={() =>
+          navigation.navigate('Questionnaire', {title: questionnaireName})
+        }
         style={{
           marginTop: 30,
           marginLeft: 10,

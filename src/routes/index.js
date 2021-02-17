@@ -6,6 +6,7 @@ import InitUser from '../pages/initUser';
 import Home from '../pages/home';
 import CreateQuestionnaire from '../pages/initQuestionnaire';
 import Questionnaire from '../pages/questionnaire';
+import Listing from '../pages/listing';
 
 const Stack = createStackNavigator();
 
@@ -27,7 +28,7 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 16,
+              fontSize: 18,
               color: 'white',
             },
           }}
@@ -46,7 +47,7 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 16,
+              fontSize: 18,
               color: 'white',
             },
           }}
@@ -65,7 +66,7 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 16,
+              fontSize: 18,
               color: 'white',
             },
           }}
@@ -84,7 +85,26 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 16,
+              fontSize: 18,
+              color: 'white',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="listing"
+          component={Listing}
+          options={{
+            title: 'Questionário',
+            headerShown: true,
+            headerBackTitleVisible: false,
+            headerTintColor: 'white',
+            headerStyle: {
+              elevation: 0,
+              shadowOpacity: 0,
+              backgroundColor: '#550073',
+            },
+            headerTitleStyle: {
+              fontSize: 18,
               color: 'white',
             },
           }}
