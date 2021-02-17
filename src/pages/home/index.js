@@ -6,10 +6,12 @@ import {Container} from './styles';
 import api from '../../services/api';
 import Card from '../../components/listItem';
 import Loading from '../../components/loading';
+import Text from '../../components/text';
 
 const Home = ({navigation}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isVoid, setIsVoid] = useState(false);
   useEffect(() => {
     getData();
   }, []);
@@ -17,9 +19,11 @@ const Home = ({navigation}) => {
     try {
       setLoading(true);
       const email = await AsyncStorage.getItem('@email');
-      const response = await api.get(`quests/${email}`);
-      setData(response.data.data.reverse());
-      setLoading(false);
+      await api.get(`quests/${email}`).then((response) => {
+        setIsVoid(response.data.data.length === 0 ? true : false);
+        setData(response.data.data.reverse());
+        setLoading(false);
+      });
     } catch (error) {
       setLoading(false);
     }
@@ -33,6 +37,15 @@ const Home = ({navigation}) => {
   }
   return (
     <Container>
+      {isVoid ? (
+        <View style={{alignItems: 'center', marginTop: 40}}>
+          <Text
+            styles={{fontFamily: 'Quicksand Bold'}}
+            data="Não há registros até o momento!"
+          />
+        </View>
+      ) : null}
+
       <ScrollView>
         <View style={{marginTop: 4}}>
           {data.map((item, index) => {

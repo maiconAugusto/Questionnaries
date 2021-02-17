@@ -76,7 +76,9 @@ const Listing = ({navigation, route}) => {
                     fontFamily: 'Quicksand',
                     fontSize: 16,
                   }}
-                  data={`${index}) - ${item.questionnaire}: ${item.response}`}
+                  data={`${index}) - ${item.questionnaire}: ${
+                    item.response === '' ? 'Não respondido.' : item.response
+                  }`}
                 />
               </TouchableOpacity>
             );
