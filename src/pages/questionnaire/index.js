@@ -56,8 +56,8 @@ const Questionnaire = ({navigation, route}) => {
         ...state,
         {questionnaire: data, response: ''},
       ]);
-      setData('');
       setVisible(false);
+      setData('');
     }
   }
 
