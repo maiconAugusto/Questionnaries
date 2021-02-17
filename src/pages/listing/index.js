@@ -35,6 +35,7 @@ const Listing = ({navigation, route}) => {
           {data.questionnaires.map((item, index) => {
             return (
               <TouchableOpacity
+                key={index}
                 onPress={() =>
                   navigation.navigate('response', {
                     questionnaires: data,
@@ -44,7 +45,6 @@ const Listing = ({navigation, route}) => {
                 }>
                 <Card
                   styles={{marginLeft: 10, padding: 6, color: '#2A2A2A'}}
-                  key={index}
                   data={`${item.questionnaire}: ${item.response}`}
                 />
               </TouchableOpacity>

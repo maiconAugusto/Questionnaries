@@ -25,13 +25,13 @@ const Home = ({navigation}) => {
           {data.map((item, index) => {
             return (
               <TouchableOpacity
+                key={index}
                 onPress={() => navigation.navigate('listing', {data: item})}>
                 <Card
                   styles={{
                     marginLeft: 10,
                     color: '#2A2A2A',
                   }}
-                  key={index}
                   data={item.title}
                 />
               </TouchableOpacity>
