@@ -43,7 +43,7 @@ const Listing = ({navigation, route}) => {
                   })
                 }>
                 <Card
-                  styles={{marginLeft: 10, padding: 6}}
+                  styles={{marginLeft: 10, padding: 6, color: '#2A2A2A'}}
                   key={index}
                   data={`${item.questionnaire}: ${item.response}`}
                 />

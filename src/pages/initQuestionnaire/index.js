@@ -15,7 +15,13 @@ const CreateQuestionnaire = ({navigation}) => {
         label="Nome do questionário"
         returnKeyType="done"
         autoFocus={true}
-        style={{fontSize: 14, marginTop: 30, marginLeft: 10, marginRight: 10}}
+        style={{
+          fontSize: 14,
+          marginTop: 30,
+          marginLeft: 10,
+          marginRight: 10,
+          color: '#2A2A2A',
+        }}
       />
       <Buttom
         data={'Proxímo'}

@@ -23,6 +23,11 @@ const Questionnaire = ({navigation, route}) => {
   }, []);
 
   useEffect(() => {
+    let value = data.replace(/[0-9]/g, '');
+    setData(value);
+  }, [data]);
+
+  useEffect(() => {
     getGeoLocation();
   }, []);
 
@@ -99,7 +104,7 @@ const Questionnaire = ({navigation, route}) => {
               setValue={setData}
               numberOfLines={4}
               multiline={true}
-              style={{height: 140, margin: 20}}
+              style={{height: 140, margin: 20, color: '#2A2A2A'}}
             />
             <Button
               contentStyle={{height: 50}}
@@ -126,19 +131,21 @@ const Questionnaire = ({navigation, route}) => {
         </Modal>
         {visible ? null : (
           <Container>
-            {loading ? (
-              <Loading color="#550073" style={{marginTop: 40}} />
-            ) : (
-              questionnaires.map((item, index) => {
-                return (
-                  <Card
-                    key={index}
-                    data={item.questionnaire}
-                    styles={{padding: 8, fontSize: 16}}
-                  />
-                );
-              })
-            )}
+            <View style={{marginTop: 4}}>
+              {loading ? (
+                <Loading color="#550073" style={{marginTop: 40}} />
+              ) : (
+                questionnaires.map((item, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      data={item.questionnaire}
+                      styles={{padding: 8, fontSize: 16, color: '#2A2A2A'}}
+                    />
+                  );
+                })
+              )}
+            </View>
           </Container>
         )}
         {visible ? null : loading ? null : (

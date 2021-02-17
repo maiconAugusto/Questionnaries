@@ -22,13 +22,16 @@ const Home = ({navigation}) => {
     <Container>
       <ScrollView>
         <View style={{marginTop: 4}}>
-          {data.map((item) => {
+          {data.map((item, index) => {
             return (
               <TouchableOpacity
                 onPress={() => navigation.navigate('listing', {data: item})}>
                 <Card
-                  styles={{marginLeft: 10}}
-                  key={item._id}
+                  styles={{
+                    marginLeft: 10,
+                    color: '#2A2A2A',
+                  }}
+                  key={index}
                   data={item.title}
                 />
               </TouchableOpacity>

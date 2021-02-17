@@ -48,7 +48,7 @@ const resonseQuestionnaire = ({navigation, route}) => {
         setValue={setResponse}
         numberOfLines={4}
         multiline={true}
-        style={{height: 140, margin: 10}}
+        style={{height: 140, margin: 10, color: '#2A2A2A'}}
       />
       <Buttom
         data={'Salvar'}
