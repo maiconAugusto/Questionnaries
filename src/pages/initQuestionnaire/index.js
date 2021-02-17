@@ -13,6 +13,7 @@ const CreateQuestionnaire = ({navigation}) => {
         mode="outlined"
         maxLength={40}
         label="Nome do questionário"
+        autoFocus={true}
         style={{fontSize: 14, marginTop: 30, marginLeft: 10, marginRight: 10}}
       />
       <Buttom

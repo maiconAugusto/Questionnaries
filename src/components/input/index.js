@@ -13,6 +13,7 @@ const Input = ({
   mode,
   multiline,
   numberOfLines,
+  autoFocus,
 }) => {
   return (
     <TextInput
@@ -32,7 +33,7 @@ const Input = ({
       style={style}
       returnKeyType={returnKeyType}
       keyboardType={keyboardType}
-      focusable={focusable}
+      autoFocus={autoFocus === undefined ? false : autoFocus}
       onChangeText={(text) => setValue(text)}
     />
   );

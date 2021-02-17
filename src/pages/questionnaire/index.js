@@ -5,6 +5,7 @@ import Geolocation from '@react-native-community/geolocation';
 import {Container, ContainerButtom, View} from './styles';
 import Card from '../../components/listItem';
 import Input from '../../components/input';
+import Loading from '../../components/loading';
 
 const Questionnaire = ({navigation}) => {
   const [visible, setVisible] = useState(false);
@@ -12,6 +13,7 @@ const Questionnaire = ({navigation}) => {
   const [questionnaires, seQuestionnaires] = useState([]);
   const [_latitude, setLatitude] = useState('');
   const [_longitude, setLongitude] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getAuthorization();
@@ -45,14 +47,19 @@ const Questionnaire = ({navigation}) => {
   }
 
   function sendToApi() {
-    const data = {
-      title: '',
-      user: '',
-      questionnaires: questionnaires,
-      latitude: _latitude,
-      longitude: _longitude,
-      date: moment().format('DD/MM/YYYY'),
-    };
+    try {
+      setLoading(true);
+      const data = {
+        title: '',
+        user: '',
+        questionnaires: questionnaires,
+        latitude: _latitude,
+        longitude: _longitude,
+        date: moment().format('DD/MM/YYYY'),
+      };
+    } catch (error) {
+      setLoading(false);
+    }
     console.log(data);
   }
   return (
@@ -81,18 +88,22 @@ const Questionnaire = ({navigation}) => {
         </Modal>
         {visible ? null : (
           <Container>
-            {questionnaires.map((item, index) => {
-              return (
-                <Card
-                  key={index}
-                  data={item.questionnaire}
-                  styles={{padding: 8, fontSize: 16}}
-                />
-              );
-            })}
+            {loading ? (
+              <Loading color="#550073" style={{marginTop: 40}} />
+            ) : (
+              questionnaires.map((item, index) => {
+                return (
+                  <Card
+                    key={index}
+                    data={item.questionnaire}
+                    styles={{padding: 8, fontSize: 16}}
+                  />
+                );
+              })
+            )}
           </Container>
         )}
-        {visible ? null : (
+        {visible ? null : loading ? null : (
           <ContainerButtom>
             <Button
               icon="plus-circle"
