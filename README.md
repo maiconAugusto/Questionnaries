@@ -3,7 +3,6 @@
  ### Principais bibliotecas utilizadas.
   - Axios.
   - Styled component.
-  - Redux/React-Redux/Redux-saga.
   - Rreact-native-community/geolocation.
   - React-native-async-storage/async-storage.
 
