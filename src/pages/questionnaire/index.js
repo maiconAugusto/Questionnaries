@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {KeyboardAvoidingView} from 'react-native';
+import {KeyboardAvoidingView, Alert} from 'react-native';
 import {Modal, Button} from 'react-native-paper';
 import moment from 'moment';
 import Geolocation from '@react-native-community/geolocation';
@@ -61,15 +61,15 @@ const Questionnaire = ({navigation, route}) => {
         longitude: String(_longitude),
         date: moment().format('DD/MM/YYYY'),
       };
-      console.log(dataToApi);
       await api
         .post('quest', dataToApi)
         .then(() => {
           setLoading(false);
+          Alert.alert('Parabéns', 'Questionário salvo com sucesso!');
           navigation.reset({index: 0, routes: [{name: 'home'}]});
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
+          Alert.alert('Ops', 'Algo deu errado, tente novamente!');
           setLoading(false);
         });
     } catch (error) {

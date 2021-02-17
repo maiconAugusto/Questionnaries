@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, TouchableOpacity} from 'react-native';
+import {ScrollView, TouchableOpacity, View} from 'react-native';
 import FloatButtom from '../../components/floatButtom';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Container} from './styles';
@@ -21,18 +21,20 @@ const Home = ({navigation}) => {
   return (
     <Container>
       <ScrollView>
-        {data.map((item) => {
-          return (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('listing', {data: item})}>
-              <Card
-                styles={{marginLeft: 10}}
-                key={item._id}
-                data={item.title}
-              />
-            </TouchableOpacity>
-          );
-        })}
+        <View style={{marginTop: 4}}>
+          {data.map((item) => {
+            return (
+              <TouchableOpacity
+                onPress={() => navigation.navigate('listing', {data: item})}>
+                <Card
+                  styles={{marginLeft: 10}}
+                  key={item._id}
+                  data={item.title}
+                />
+              </TouchableOpacity>
+            );
+          })}
+        </View>
       </ScrollView>
       <FloatButtom
         color="#550073"

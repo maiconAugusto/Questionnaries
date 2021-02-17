@@ -15,7 +15,7 @@ const Listing = ({navigation, route}) => {
         />
         <Text
           styles={{fontSize: 14, marginLeft: 10, marginTop: 4}}
-          data={`Titulo: ${data.title}`}
+          data={`Título: ${data.title}`}
         />
         <Text
           styles={{fontSize: 14, marginLeft: 10, marginTop: 4}}
@@ -30,11 +30,18 @@ const Listing = ({navigation, route}) => {
           data={`Longitude: ${data.longitude}`}
         />
       </View>
-      <ScrollView>
+      <ScrollView style={{marginTop: 20}}>
         <View style={{marginTop: 6}}>
           {data.questionnaires.map((item, index) => {
             return (
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('response', {
+                    questionnaires: data,
+                    data: item,
+                    index: index,
+                  })
+                }>
                 <Card
                   styles={{marginLeft: 10, padding: 6}}
                   key={index}

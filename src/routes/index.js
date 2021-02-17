@@ -7,6 +7,7 @@ import Home from '../pages/home';
 import CreateQuestionnaire from '../pages/initQuestionnaire';
 import Questionnaire from '../pages/questionnaire';
 import Listing from '../pages/listing';
+import ResponseQuetionnaire from '../pages/responseQuestionnaire';
 
 const Stack = createStackNavigator();
 
@@ -95,6 +96,25 @@ const Routes = () => {
           component={Listing}
           options={{
             title: 'Questionário',
+            headerShown: true,
+            headerBackTitleVisible: false,
+            headerTintColor: 'white',
+            headerStyle: {
+              elevation: 0,
+              shadowOpacity: 0,
+              backgroundColor: '#550073',
+            },
+            headerTitleStyle: {
+              fontSize: 18,
+              color: 'white',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="response"
+          component={ResponseQuetionnaire}
+          options={{
+            title: 'Resposta',
             headerShown: true,
             headerBackTitleVisible: false,
             headerTintColor: 'white',
