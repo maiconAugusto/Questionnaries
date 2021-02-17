@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Modal, Button} from 'react-native-paper';
+import moment from 'moment';
+import Geolocation from '@react-native-community/geolocation';
 import {Container, ContainerButtom, View} from './styles';
 import Card from '../../components/listItem';
 import Input from '../../components/input';
@@ -8,13 +10,50 @@ const Questionnaire = ({navigation}) => {
   const [visible, setVisible] = useState(false);
   const [data, setData] = useState('');
   const [questionnaires, seQuestionnaires] = useState([]);
+  const [_latitude, setLatitude] = useState('');
+  const [_longitude, setLongitude] = useState('');
+
+  useEffect(() => {
+    getAuthorization();
+  }, []);
+
+  useEffect(() => {
+    getGeoLocation();
+  }, []);
+
+  function getAuthorization() {
+    Geolocation.requestAuthorization();
+  }
+
+  function getGeoLocation() {
+    Geolocation.getCurrentPosition((info) => {
+      const {latitude, longitude} = info.coords;
+      setLatitude(latitude);
+      setLongitude(longitude);
+    });
+  }
 
   function addNewQuestionnaire() {
     if (data !== '') {
-      seQuestionnaires((state) => [...state, data]);
+      seQuestionnaires((state) => [
+        ...state,
+        {questionnaire: data, response: ''},
+      ]);
       setData('');
       setVisible(false);
     }
+  }
+
+  function sendToApi() {
+    const data = {
+      title: '',
+      user: '',
+      questionnaires: questionnaires,
+      latitude: _latitude,
+      longitude: _longitude,
+      date: moment().format('DD/MM/YYYY'),
+    };
+    console.log(data);
   }
   return (
     <>
@@ -29,6 +68,7 @@ const Questionnaire = ({navigation}) => {
             setValue={setData}
             numberOfLines={4}
             multiline={true}
+            keyboardType="default"
             style={{height: 140, margin: 20}}
           />
           <Button
@@ -45,7 +85,7 @@ const Questionnaire = ({navigation}) => {
               return (
                 <Card
                   key={index}
-                  data={item}
+                  data={item.questionnaire}
                   styles={{padding: 8, fontSize: 16}}
                 />
               );
@@ -69,6 +109,7 @@ const Questionnaire = ({navigation}) => {
               Adicionar
             </Button>
             <Button
+              disabled={questionnaires.length === 0 ? true : false}
               icon="content-save-outline"
               color="white"
               contentStyle={{height: 50}}
@@ -78,7 +119,7 @@ const Questionnaire = ({navigation}) => {
                 marginRight: 20,
                 marginBottom: 30,
               }}
-              onPress={() => setVisible(!visible)}>
+              onPress={() => sendToApi()}>
               Finalizar
             </Button>
           </ContainerButtom>
