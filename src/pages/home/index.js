@@ -62,7 +62,7 @@ const Home = ({navigation}) => {
                     color: '#2A2A2A',
                     fontFamily: 'Quicksand Bold',
                   }}
-                  data={item.title}
+                  data={`${index}) - ${item.title}`}
                 />
               </TouchableOpacity>
             );
