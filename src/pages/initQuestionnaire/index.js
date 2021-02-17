@@ -11,7 +11,8 @@ const CreateQuestionnaire = ({navigation}) => {
         value={questionnaireName}
         setValue={setQuestionnaireName}
         mode="outlined"
-        maxLength={40}
+        maxLength={100}
+        numberOfLines={1}
         label="Nome do questionário"
         returnKeyType="done"
         autoFocus={true}

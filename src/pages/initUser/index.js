@@ -41,9 +41,11 @@ const InitUser = ({navigation}) => {
         value={email}
         setValue={setEmail}
         mode="outlined"
-        autoFocus={true}
         keyboardType="email-address"
         autoCapitalize="none"
+        maxLength={100}
+        numberOfLines={1}
+        autoFocus={true}
         returnKeyType="done"
         label="Insira seu e-mail"
         style={{

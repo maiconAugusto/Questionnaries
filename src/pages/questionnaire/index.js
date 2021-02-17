@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {KeyboardAvoidingView, Alert} from 'react-native';
+import {KeyboardAvoidingView, Alert, Platform} from 'react-native';
 import {Modal, Button} from 'react-native-paper';
 import moment from 'moment';
 import Geolocation from '@react-native-community/geolocation';
@@ -19,10 +19,6 @@ const Questionnaire = ({navigation, route}) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getAuthorization();
-  }, []);
-
-  useEffect(() => {
     let value = data.replace(/[0-9]/g, '');
     setData(value);
   }, [data]);
@@ -31,19 +27,30 @@ const Questionnaire = ({navigation, route}) => {
     getGeoLocation();
   }, []);
 
-  function getAuthorization() {
-    Geolocation.requestAuthorization();
-  }
-
   function getGeoLocation() {
-    Geolocation.getCurrentPosition((info) => {
-      const {latitude, longitude} = info.coords;
-      setLatitude(latitude);
-      setLongitude(longitude);
-    });
+    Geolocation.getCurrentPosition(
+      (info) => {
+        const {latitude, longitude} = info.coords;
+        setLatitude(latitude);
+        setLongitude(longitude);
+      },
+      () => {
+        Alert.alert(
+          'Erro ao obter localização',
+          'verefique se seu GPS está ativo, ou se você está em um local fechado!',
+          [{text: 'OK', onPress: {}}],
+          {cancelable: false},
+        );
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 1000,
+      },
+    );
   }
 
-  function addNewQuestionnaire() {
+  async function addNewQuestionnaire() {
     if (data !== '') {
       seQuestionnaires((state) => [
         ...state,
@@ -80,7 +87,6 @@ const Questionnaire = ({navigation, route}) => {
     } catch (error) {
       setLoading(false);
     }
-    console.log(data);
   }
   return (
     <>
@@ -139,7 +145,7 @@ const Questionnaire = ({navigation, route}) => {
                   return (
                     <Card
                       key={index}
-                      data={item.questionnaire}
+                      data={`${index}) - ${item.questionnaire}`}
                       styles={{
                         padding: 8,
                         fontSize: 16,

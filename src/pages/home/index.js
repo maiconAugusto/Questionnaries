@@ -12,9 +12,11 @@ const Home = ({navigation}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isVoid, setIsVoid] = useState(false);
+
   useEffect(() => {
     getData();
   }, []);
+
   async function getData() {
     try {
       setLoading(true);
