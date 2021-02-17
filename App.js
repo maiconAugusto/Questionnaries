@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Platform, PermissionsAndroid} from 'react-native';
+import {Platform, PermissionsAndroid, View} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import {StatusBar} from 'react-native';
 import Routes from './src/routes';
@@ -24,10 +24,10 @@ const App = () => {
   }
 
   return (
-    <>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <StatusBar backgroundColor="#550073" barStyle="light-content" />
       <Routes />
-    </>
+    </View>
   );
 };
 export default App;
