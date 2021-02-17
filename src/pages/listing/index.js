@@ -8,7 +8,7 @@ const Listing = ({navigation, route}) => {
   const data = route.params.data;
   return (
     <Container>
-      <View style={{height: 120}}>
+      <View style={{height: 120, justifyContent: 'center'}}>
         <Text
           styles={{
             fontSize: 14,
