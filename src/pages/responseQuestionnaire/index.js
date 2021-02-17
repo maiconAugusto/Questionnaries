@@ -51,6 +51,7 @@ const resonseQuestionnaire = ({navigation, route}) => {
       <Input
         label="Resposta"
         value={response}
+        mode="outlined"
         keyboardType="default"
         returnKeyType="default"
         setValue={setResponse}
