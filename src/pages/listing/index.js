@@ -10,23 +10,48 @@ const Listing = ({navigation, route}) => {
     <Container>
       <View style={{height: 120}}>
         <Text
-          styles={{fontSize: 14, marginLeft: 10, marginTop: 12}}
+          styles={{
+            fontSize: 14,
+            marginLeft: 10,
+            marginTop: 12,
+            fontFamily: 'Quicksand Bold',
+          }}
           data={`Usuário: ${data.user}`}
         />
         <Text
-          styles={{fontSize: 14, marginLeft: 10, marginTop: 4}}
+          styles={{
+            fontSize: 14,
+            marginLeft: 10,
+            marginTop: 2,
+            fontFamily: 'Quicksand Bold',
+          }}
           data={`Título: ${data.title}`}
         />
         <Text
-          styles={{fontSize: 14, marginLeft: 10, marginTop: 4}}
+          styles={{
+            fontSize: 14,
+            marginLeft: 10,
+            marginTop: 2,
+            fontFamily: 'Quicksand Bold',
+          }}
           data={`Data: ${data.date}`}
         />
         <Text
-          styles={{fontSize: 14, marginLeft: 10, marginTop: 4}}
+          styles={{
+            fontSize: 14,
+            marginLeft: 10,
+            marginTop: 2,
+            fontFamily: 'Quicksand Bold',
+          }}
           data={`Latitude: ${data.latitude}`}
         />
         <Text
-          styles={{fontSize: 14, marginLeft: 10, marginTop: 4}}
+          styles={{
+            fontSize: 14,
+            marginLeft: 10,
+            marginTop: 2,
+            fontFamily: 'Quicksand Bold',
+          }}
           data={`Longitude: ${data.longitude}`}
         />
       </View>
@@ -44,7 +69,13 @@ const Listing = ({navigation, route}) => {
                   })
                 }>
                 <Card
-                  styles={{marginLeft: 10, padding: 6, color: '#2A2A2A'}}
+                  styles={{
+                    marginLeft: 10,
+                    padding: 6,
+                    color: '#2A2A2A',
+                    fontFamily: 'Quicksand',
+                    fontSize: 16,
+                  }}
                   data={`${item.questionnaire}: ${item.response}`}
                 />
               </TouchableOpacity>

@@ -140,7 +140,12 @@ const Questionnaire = ({navigation, route}) => {
                     <Card
                       key={index}
                       data={item.questionnaire}
-                      styles={{padding: 8, fontSize: 16, color: '#2A2A2A'}}
+                      styles={{
+                        padding: 8,
+                        fontSize: 16,
+                        color: '#2A2A2A',
+                        fontFamily: 'Quicksand Regular',
+                      }}
                     />
                   );
                 })

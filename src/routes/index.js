@@ -29,8 +29,9 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 18,
+              fontSize: 20,
               color: 'white',
+              fontFamily: 'Quicksand Bold',
             },
           }}
         />
@@ -48,8 +49,9 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 18,
+              fontSize: 20,
               color: 'white',
+              fontFamily: 'Quicksand Bold',
             },
           }}
         />
@@ -67,8 +69,9 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 18,
+              fontSize: 20,
               color: 'white',
+              fontFamily: 'Quicksand Bold',
             },
           }}
         />
@@ -86,8 +89,9 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 18,
+              fontSize: 20,
               color: 'white',
+              fontFamily: 'Quicksand Bold',
             },
           }}
         />
@@ -105,8 +109,9 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 18,
+              fontSize: 20,
               color: 'white',
+              fontFamily: 'Quicksand Bold',
             },
           }}
         />
@@ -124,8 +129,9 @@ const Routes = () => {
               backgroundColor: '#550073',
             },
             headerTitleStyle: {
-              fontSize: 18,
+              fontSize: 20,
               color: 'white',
+              fontFamily: 'Quicksand Bold',
             },
           }}
         />

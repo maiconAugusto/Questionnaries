@@ -28,7 +28,12 @@ const InitUser = ({navigation}) => {
     <Container>
       <View>
         <Text
-          styles={{marginTop: 40, color: '#2A2A2A'}}
+          styles={{
+            marginTop: 40,
+            color: '#2A2A2A',
+            fontFamily: 'Quicksand Bold',
+            fontSize: 14,
+          }}
           data="Bem-vindo, informe seu seu e-mail para prosseguir."
         />
       </View>

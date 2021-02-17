@@ -5,18 +5,31 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Container} from './styles';
 import api from '../../services/api';
 import Card from '../../components/listItem';
+import Loading from '../../components/loading';
 
 const Home = ({navigation}) => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     getData();
   }, []);
   async function getData() {
     try {
+      setLoading(true);
       const email = await AsyncStorage.getItem('@email');
       const response = await api.get(`quests/${email}`);
       setData(response.data.data.reverse());
-    } catch (error) {}
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  }
+  if (loading) {
+    return (
+      <Container>
+        <Loading style={{marginTop: 40}} color="#550073" />
+      </Container>
+    );
   }
   return (
     <Container>
@@ -30,7 +43,9 @@ const Home = ({navigation}) => {
                 <Card
                   styles={{
                     marginLeft: 10,
+                    fontSize: 14,
                     color: '#2A2A2A',
+                    fontFamily: 'Quicksand Bold',
                   }}
                   data={item.title}
                 />

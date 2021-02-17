@@ -39,7 +39,15 @@ const resonseQuestionnaire = ({navigation, route}) => {
   }
   return (
     <Container>
-      <Text styles={{marginLeft: 10, marginTop: 40}} data={questionnaire} />
+      <Text
+        styles={{
+          marginLeft: 10,
+          marginTop: 40,
+          fontFamily: 'Quicksand',
+          fontSize: 16,
+        }}
+        data={questionnaire}
+      />
       <Input
         label="Resposta"
         value={response}
@@ -48,7 +56,11 @@ const resonseQuestionnaire = ({navigation, route}) => {
         setValue={setResponse}
         numberOfLines={4}
         multiline={true}
-        style={{height: 140, margin: 10, color: '#2A2A2A'}}
+        style={{
+          height: 140,
+          margin: 10,
+          color: '#2A2A2A',
+        }}
       />
       <Buttom
         data={'Salvar'}
