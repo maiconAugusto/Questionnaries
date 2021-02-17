@@ -101,7 +101,7 @@ const Questionnaire = ({navigation, route}) => {
             setData('');
             setVisible(!visible);
           }}>
-          <KeyboardAvoidingView style={{flex: 1}}>
+          <KeyboardAvoidingView style={{flex: 1, backgroundColor: 'white'}}>
             <Input
               label="Digite aqui"
               value={data}
