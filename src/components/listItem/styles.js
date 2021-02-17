@@ -9,7 +9,7 @@ export const Card = styled.View.attrs({
   shadowOpacity: 4.25,
   shadowRadius: 1.84,
 
-  elevation: 1,
+  elevation: 2,
 })`
   display: flex;
   flex-direction: column;

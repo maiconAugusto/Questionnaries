@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, TouchableOpacity, View} from 'react-native';
+import {ScrollView, Pressable, View} from 'react-native';
 import {Container} from './styles';
 import Card from '../../components/listItem';
 import Text from '../../components/text';
@@ -59,7 +59,7 @@ const Listing = ({navigation, route}) => {
         <View style={{marginTop: 6}}>
           {data.questionnaires.map((item, index) => {
             return (
-              <TouchableOpacity
+              <Pressable
                 key={index}
                 onPress={() =>
                   navigation.navigate('response', {
@@ -80,7 +80,7 @@ const Listing = ({navigation, route}) => {
                     item.response === '' ? 'Não respondido.' : item.response
                   }`}
                 />
-              </TouchableOpacity>
+              </Pressable>
             );
           })}
         </View>

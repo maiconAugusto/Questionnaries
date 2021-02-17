@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, TouchableOpacity, View} from 'react-native';
+import {ScrollView, Pressable, View} from 'react-native';
 import FloatButtom from '../../components/floatButtom';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Container} from './styles';
@@ -52,7 +52,7 @@ const Home = ({navigation}) => {
         <View style={{marginTop: 4}}>
           {data.map((item, index) => {
             return (
-              <TouchableOpacity
+              <Pressable
                 key={index}
                 onPress={() => navigation.navigate('listing', {data: item})}>
                 <Card
@@ -64,7 +64,7 @@ const Home = ({navigation}) => {
                   }}
                   data={`${index}) - ${item.title}`}
                 />
-              </TouchableOpacity>
+              </Pressable>
             );
           })}
         </View>
